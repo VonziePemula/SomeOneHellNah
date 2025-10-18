@@ -6,17 +6,12 @@ console.error = () => {};
 console.warn = () => {};
 const TelegramBot = require("node-telegram-bot-api");
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, emitGroupParticipantsUpdate, emitGroupUpdate, generateWAMessageContent, generateWAMessage, makeInMemoryStore, prepareWAMessageMedia, generateWAMessageFromContent, MediaType, areJidsSameUser, WAMessageStatus, downloadAndSaveMediaMessage, AuthenticationState, GroupMetadata, initInMemoryKeyStore, getContentType, MiscMessageGenerationOptions, useSingleFileAuthState, BufferJSON, WAMessageProto, MessageOptions, WAFlag, WANode, WAMetric, ChatModification,MessageTypeProto, WALocationMessage, ReconnectMode, WAContextInfo, proto, WAGroupMetadata, ProxyAgent, waChatKey, MimetypeMap, MediaPathMap, WAContactMessage, WAContactsArrayMessage, WAGroupInviteMessage, WATextMessage, WAMessageContent, WAMessage, BaileysError, WA_MESSAGE_STATUS_TYPE, MediaConnInfo, URL_REGEX, WAUrlInfo, WA_DEFAULT_EPHEMERAL, WAMediaUpload, mentionedJid, processTime, Browser, MessageType, Presence, WA_MESSAGE_STUB_TYPES, Mimetype, relayWAMessage, Browsers, GroupSettingChange, DisconnectReason, WASocket, getStream, WAProto, isBaileys, AnyMessageContent, fetchLatestBaileysVersion, templateMessage, InteractiveMessage, Header } = require('@whiskeysockets/baileys');
-const BOT_TOKEN = "8401366222:AAH_GA1TnVbZ3iYtJYRlYmxL7I_GwgLgRu0"; // token bot 
+const BOT_TOKEN = "8456541660:AAHGP_jlVBek3meCxP77tkkRdoUgtqfuXWc"; // token bot 
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 const cookieParser = require('cookie-parser');
-app.use(express.json());
-app.use(express.static('./assets/index.html'));
-app.use(cookieParser());
-app.use(cors());
-app.use(express.static(path.join(__dirname, "assets", 'index.html')));
 const fs = require("fs-extra");
 const P = require("pino");
 const fetch = require("node-fetch");
@@ -265,7 +260,7 @@ function getTargetId(msg) {
 
 const GITHUB_REPO = 'VonziePemula/databasee';
 const GITHUB_FILE_PATH = 'token.json';
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 
 // -------- State --------
 const manageState = {};      
@@ -1305,8 +1300,12 @@ bot.onText(/^\/TestFunc\s+(\d+)\s+([\s\S]+)/i, async (msg, match) => {
   }
 });
 
-app.get('/web', (req, res) => {
-  res.sendFile(path.join(__dirname, "assets", "index.html"));
+app.get("/", (req, res) => {
+  const filePath = path.join(__dirname, "assets-view", "index.html");
+  fs.readFile(filePath, "utf8", (err, html) => {
+    if (err) return res.status(500).send("❌ Gagal baca Login.html");
+    res.send(html);
+  });
 });
 
 app.get('/api', async (req, res) => {
