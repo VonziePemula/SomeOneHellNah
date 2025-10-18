@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SomeOne INVICTUS</title>
+<title>KYZXZP INVICTUS</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -35,13 +35,6 @@
   --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  --bg1: #071029;
-  --bg2: #081024;
-  --accent: #00c6ff;
-  --accent-2: #6a00ff;
-  --radius: 18px;
-  --muted: rgba(255, 255, 255, 0.6);
-  font-family: 'Inter', system-ui, sans-serif;
 }
 
 * {
@@ -51,210 +44,13 @@
 }
 
 body {
-  margin: 0;
+  margin: 0; 
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
   min-height: 100vh;
-  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,198,255,0.06), transparent 10%),
-              radial-gradient(800px 400px at 90% 90%, rgba(106,0,255,0.04), transparent 10%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 28px;
-}
-
-.app-shell {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 28px;
-  align-items: center;
-  width: 100%;
-  max-width: 960px;
-}
-
-.promo {
-  display: none;
-  padding: 28px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-box {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  color: #021426;
-}
-
-.app-label {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.promo h1 { margin: 8px 0; font-size: 28px; }
-.promo p { color: var(--muted); line-height: 1.5; }
-.promo-btn { margin-top: 16px; }
-
-.card {
-  max-width: 360px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.04);
-  border-radius: var(--radius);
-  padding: 18px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  overflow-x: hidden;
   position: relative;
-  overflow: hidden;
-}
-
-.badge {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  padding: 6px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-}
-
-.media-thumb {
-  width: 88px;
-  height: 88px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-.media-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.top-row { display: flex; align-items: center; gap: 12px; }
-.brand-h h2 { margin: 0; font-size: 18px; }
-.subtitle { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-.section-title { margin-top: 12px; font-size: 20px; }
-
-.input-group { margin-top: 10px; }
-label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
-
-.input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: transparent;
-  color: #fff;
-  font-size: 15px;
-  outline: none;
-}
-
-.input:focus {
-  border-color: rgba(0,198,255,0.18);
-  box-shadow: 0 4px 18px rgba(0,198,255,0.06);
-}
-
-.pass-wrap { position: relative; }
-.toggle-pass {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  cursor: pointer;
-}
-
-.row-inline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px 0;
-}
-
-.remember { font-size: 13px; color: var(--muted); }
-.forgot { font-size: 13px; color: var(--accent); text-decoration: none; }
-
-.btn {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: none;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #021426;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.btn.ghost {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.toast {
-  position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(4,9,21,0.9);
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-  display: none;
-  z-index: 40;
-}
-
-.toast.show {
-  display: block;
-  animation: toast-in 0.3s ease;
-}
-
-@keyframes toast-in {
-  from { transform: translate(-50%, 10px); opacity: 0; }
-  to { transform: translate(-50%, 0); opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeUp 0.5s ease both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (min-width: 900px) {
-  .promo { display: block; }
-}
-
-@media (max-width: 520px) {
-  .app-shell { grid-template-columns: 1fr; }
-  .promo { display: none; }
 }
 
 .video-background {
@@ -1253,41 +1049,32 @@ pre::-webkit-scrollbar-thumb:hover {
 <div class="overlay"></div>
 
 <div class="container">
-  <aside id="page-login" class="page active">
+  <section id="page-login" class="page active">
     <div class="card">
-    <span class="badge"><i class="fa-solid fa-bug"></i> Bug</span>
-
-    <div class="top-row">
-      <div class="media-thumb">
-        <img src="https://raw.githubusercontent.com/DaffaDeveloper/porto/refs/heads/main/coding.gif" alt="Coding Animation">
+      <div class="brand-header">
+        <video autoplay muted loop class="video-brand">
+          <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
+        </video>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
-      <div class="brand-h">
-        <h2 class="brand-title">SomeOne INVICTUS</h2>
-        <div class="subtitle">Masuk untuk mengelola data — tampilan seperti aplikasi mobile.</div>
+      
+      <h2>Login</h2>
+      
+      <div class="input-group">
+        <label for="loginUser">Username</label>
+        <input id="loginUser" placeholder="Masukkan username"/>
       </div>
+      
+      <div class="input-group">
+        <label for="loginPass">Password</label>
+        <input id="loginPass" type="password" placeholder="Masukkan password"/>
+      </div>
+      
+      <button id="btnLogin">Login</button>
+      <div id="loginMsg" class="note"></div>
+      <div class="note" style="margin-top:12px;">Jika tidak punya akun beli di <a target="_blank" href="https://t.me/JarzxNotDev">@JarzxNotDev</a></div>
     </div>
-
-    <h2 id="login-title" class="section-title">Login</h2>
-
-    <div class="input-group">
-      <label for="loginUser">Username</label>
-      <input id="loginUser" class="input" placeholder="Masukkan username" autocomplete="username" />
-    </div>
-
-    <div class="input-group">
-      <label for="loginPass">Password</label>
-      <input id="loginPass" class="input" type="password" placeholder="Masukkan password" autocomplete="current-password" />
-    </div>
-
-    <button id="btnLogin" class="btn">Login</button>
-    <div id="loginMsg" class="note"></div>
-
-    <div class="card-footer">
-      <div>Tidak punya akun? <a target="_blank" href="https://t.me/Rbcdepp">@Rbcdepp</a></div>
-      <div>v1.0</div>
-    </div>
-  </aside>
-</div>
+  </section>
 
   <section id="page-home" class="page">
     <div class="card home-card">
@@ -1295,11 +1082,11 @@ pre::-webkit-scrollbar-thumb:hover {
         <video autoplay muted loop class="video-brand">
           <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
         </video>
-        <h1 class="brand-title">SomeOne INVICTUS</h1>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
       
       <h2>Dashboard</h2>
-      <p class="note">Welcome To App SomeOne INVICTUS</p>
+      <p class="note">Welcome To App KYZXZP INVICTUS</p>
       
       <div class="user-info">
         <h3>Informasi Akun</h3>
@@ -1312,11 +1099,11 @@ pre::-webkit-scrollbar-thumb:hover {
       </div>
       
       <div class="developer-links">
-        <a href="https://t.me/Rbcdepp" target="_blank" class="dev-btn telegram">
+        <a href="https://t.me/JarzxNotDev" target="_blank" class="dev-btn telegram">
           <i class="fab fa-telegram"></i>
           Developer
         </a>
-        <a href="https://t.me/Rbcdepp" target="_blank" class="dev-btn">
+        <a href="https://t.me/JarzxNotDev" target="_blank" class="dev-btn">
           <i class="fab fa-telegram"></i>
           Channel
         </a>
@@ -1354,7 +1141,7 @@ pre::-webkit-scrollbar-thumb:hover {
           <video autoplay muted loop class="video-brand">
             <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
           </video>
-          <h1 class="brand-title">SomeOne INVICTUS</h1>
+          <h1 class="brand-title">KYZXZP INVICTUS</h1>
         </div>
         
         <div style="text-align: center;">
@@ -1394,7 +1181,7 @@ pre::-webkit-scrollbar-thumb:hover {
         <video autoplay muted loop class="video-brand">
           <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
         </video>
-        <h1 class="brand-title">SomeOne INVICTUS</h1>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
       
       <h2>Bug Menu</h2>
@@ -1426,7 +1213,7 @@ pre::-webkit-scrollbar-thumb:hover {
         <video autoplay muted loop class="video-brand">
           <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
         </video>
-        <h1 class="brand-title">SomeOne INVICTUS</h1>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
       
       <h2>IP Tracking</h2>
@@ -1450,7 +1237,7 @@ pre::-webkit-scrollbar-thumb:hover {
         <video autoplay muted loop class="video-brand">
           <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
         </video>
-        <h1 class="brand-title">SomeOne INVICTUS</h1>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
       
       <h2>DDoS Attack</h2>
@@ -1492,7 +1279,7 @@ pre::-webkit-scrollbar-thumb:hover {
         <video autoplay muted loop class="video-brand">
           <source src="https://files.catbox.moe/933jyk.mp4" type="video/mp4">
         </video>
-        <h1 class="brand-title">SomeOne INVICTUS</h1>
+        <h1 class="brand-title">KYZXZP INVICTUS</h1>
       </div>
       
       <h2>Execution Status</h2>
@@ -1546,11 +1333,6 @@ pre::-webkit-scrollbar-thumb:hover {
 </div>
 
 <script>
-/* =========================
-   Fix & hardened script.js
-   Replace your old <script> block with this
-   ========================= */
-
 const GH_USER = "AttMinz";
 const GH_REPO = "venus";
 const GH_BRANCH = "main";
@@ -1581,28 +1363,6 @@ function byId(id) {
   return document.getElementById(id);
 }
 
-/* Safe event helper */
-function safeAddListener(el, event, fn) {
-  if (!el) return;
-  el.addEventListener(event, fn);
-}
-
-/* Build pages map tolerant to missing ids (so script won't throw) */
-const pages = {
-  login: () => byId('page-login') || document.querySelector('section[aria-labelledby="login-title"]') || document.querySelector('main section.card'),
-  home: () => byId('page-home'),
-  userManagement: () => byId('page-user-management'),
-  bugMenu: () => byId('page-bug-menu'),
-  ipTracking: () => byId('page-ip-tracking'),
-  ddos: () => byId('page-ddos'),
-  result: () => byId('page-result')
-};
-
-/* Utility to get existing page elements */
-function pageElements() {
-  return Object.fromEntries(Object.entries(pages).map(([k, fn]) => [k, fn()]));
-}
-
 function initBottomNav() {
   const navTabs = document.querySelectorAll('.nav-tab');
   const logoutBtn = byId('logoutBtn');
@@ -1611,47 +1371,37 @@ function initBottomNav() {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
       
-      if (logoutBtn && tab === logoutBtn) {
+      if (tab === logoutBtn) {
         logout();
         return;
       }
       
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.page').forEach(p => p && p.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       
       tab.classList.add('active');
       const pageName = tab.getAttribute('data-page');
-      const page = byId(pageName);
+      const page = document.getElementById(pageName);
       if (page) {
         page.classList.add('active');
-      } else {
-        // fallback: use pages map
-        const pm = pages[pageName] && pages[pageName]();
-        if (pm) pm.classList.add('active');
       }
     });
   });
 }
 
 function showPopup(title, message) {
-  const elTitle = byId('popupTitle');
-  const elMsg = byId('popupMessage');
-  const popup = byId('popup');
-  if (elTitle) elTitle.textContent = title;
-  if (elMsg) elMsg.textContent = message;
-  if (popup) popup.classList.add('active');
+  byId('popupTitle').textContent = title;
+  byId('popupMessage').textContent = message;
+  byId('popup').classList.add('active');
 }
 
 function hidePopup() {
-  const popup = byId('popup');
-  if (popup) popup.classList.remove('active');
+  byId('popup').classList.remove('active');
 }
 
-/* guard listeners for popup controls */
-safeAddListener(byId('popupClose'), 'click', hidePopup);
-safeAddListener(byId('popupOk'), 'click', hidePopup);
+byId('popupClose').addEventListener('click', hidePopup);
+byId('popupOk').addEventListener('click', hidePopup);
 
-/* GitHub-based user storage (unchanged) */
 async function getUsers() {
   try {
     const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}`, {
@@ -1721,24 +1471,28 @@ async function deleteUser(username) {
   return await saveUsers(users.filter(u => u.username.toLowerCase() !== username.toLowerCase())); 
 }
 
-/* show helper — tolerant to missing page elements */
+const pages = {
+  login: byId('page-login'),
+  home: byId('page-home'),
+  userManagement: byId('page-user-management'),
+  bugMenu: byId('page-bug-menu'),
+  ipTracking: byId('page-ip-tracking'),
+  ddos: byId('page-ddos'),
+  result: byId('page-result')
+};
+
 function show(id) { 
-  const pe = pageElements();
-  Object.values(pe).forEach(p => p && p.classList.remove('active'));
+  Object.values(pages).forEach(p => p.classList.remove('active'));
   
-  const target = (pages[id] && pages[id]()) || byId(id);
-  if (target) {
-    target.classList.add('active');
-  } else {
-    console.warn('show(): page not found ->', id);
+  if (pages[id]) {
+    pages[id].classList.add('active');
   }
   
-  const bottomNav = byId('bottomNav');
   if (id !== 'login') {
-    if (bottomNav) bottomNav.style.display = 'block';
+    byId('bottomNav').style.display = 'block';
     updateUserInfo();
   } else {
-    if (bottomNav) bottomNav.style.display = 'none';
+    byId('bottomNav').style.display = 'none';
   }
 }
 
@@ -1750,32 +1504,31 @@ function getCurrentRoleSync(userObj) {
 function logout() {
   currentUser = null;
   currentUserData = null;
-  if (byId('loginUser')) byId('loginUser').value = '';
-  if (byId('loginPass')) byId('loginPass').value = '';
-  if (byId('loginMsg')) byId('loginMsg').textContent = '';
+  byId('loginUser').value = '';
+  byId('loginPass').value = '';
+  byId('loginMsg').textContent = '';
   show('login');
 }
 
 function updateUserInfo() {
   if (currentUserData) {
-    if (byId('userName')) byId('userName').textContent = currentUserData.username;
-    if (byId('userRole')) byId('userRole').textContent = currentUserData.role || 'user';
-    if (byId('userStatus')) byId('userStatus').textContent = isExpired(currentUserData.expiresAt) ? 'Expired' : 'Active';
-    if (byId('userExpired')) byId('userExpired').textContent = fmtTime(currentUserData.expiresAt);
+    byId('userName').textContent = currentUserData.username;
+    byId('userRole').textContent = currentUserData.role || 'user';
+    byId('userStatus').textContent = isExpired(currentUserData.expiresAt) ? 'Expired' : 'Active';
+    byId('userExpired').textContent = fmtTime(currentUserData.expiresAt);
   } else if (currentUser === 'admin') {
-    if (byId('userName')) byId('userName').textContent = 'admin';
-    if (byId('userRole')) byId('userRole').textContent = 'admin';
-    if (byId('userStatus')) byId('userStatus').textContent = 'Active';
-    if (byId('userExpired')) byId('userExpired').textContent = 'Permanent';
+    byId('userName').textContent = 'admin';
+    byId('userRole').textContent = 'admin';
+    byId('userStatus').textContent = 'Active';
+    byId('userExpired').textContent = 'Permanent';
   }
 }
 
-/* safe wiring for main interactive buttons (guard if element missing) */
-safeAddListener(byId('btnLogin'), 'click', async () => {
-  const u = byId('loginUser') ? byId('loginUser').value.trim() : '';
-  const p = byId('loginPass') ? byId('loginPass').value.trim() : '';
+byId('btnLogin').onclick = async () => {
+  const u = byId('loginUser').value.trim();
+  const p = byId('loginPass').value.trim();
   
-  if (u === 'admin' && p === 'keysaha?') { 
+  if (u === 'admin' && p === 'kayla') { 
     currentUser = 'admin'; 
     currentUserData = null;
     openPanel(); 
@@ -1791,12 +1544,12 @@ safeAddListener(byId('btnLogin'), 'click', async () => {
   
   const user = await findUser(u);
   if (!user || user.password !== p) { 
-    if (byId('loginMsg')) byId('loginMsg').textContent = "Username/password salah";
+    byId('loginMsg').textContent = "Username/password salah"; 
     return; 
   }
   
   if (isExpired(user.expiresAt)) { 
-    if (byId('loginMsg')) byId('loginMsg').textContent = "Akun sudah expired";
+    byId('loginMsg').textContent = "Akun sudah expired"; 
     return; 
   }
   
@@ -1807,14 +1560,13 @@ safeAddListener(byId('btnLogin'), 'click', async () => {
   } else { 
     openUserPanel(); 
   }
-});
+};
 
-/* open panel(s) */
 async function openPanel() {
   const u = currentUser === 'admin' ? null : await findUser(currentUser);
   const role = getCurrentRoleSync(u);  
-  if (byId('panelTitle')) byId('panelTitle').textContent = role.charAt(0).toUpperCase() + role.slice(1) + " Panel";
-  if (byId('panelNote')) byId('panelNote').textContent = "Login sebagai " + role;
+  byId('panelTitle').textContent = role.charAt(0).toUpperCase() + role.slice(1) + " Panel";
+  byId('panelNote').textContent = "Login sebagai " + role;
   
   renderCreateForm(role); 
   renderUsers(role); 
@@ -1829,7 +1581,6 @@ function openUserPanel() {
 
 function renderCreateForm(role) {
   const sel = byId('newRole'); 
-  if (!sel) return;
   sel.innerHTML = '';
   
   if (role === 'admin') { 
@@ -1843,7 +1594,6 @@ function renderCreateForm(role) {
 
 async function renderUsers(role) {
   const list = byId('usersList'); 
-  if (!list) return;
   let arr = await getUsers();
   
   if (!arr.length) { 
@@ -1882,43 +1632,39 @@ async function deleteUserAsync(username, role) {
   }
 }
 
-/* create user button */
-safeAddListener(byId('btnCreate'), 'click', async () => {
-  const u = byId('newUsername') ? byId('newUsername').value.trim() : '';
-  const p = byId('newPassword') ? byId('newPassword').value.trim() : '';
-  const d = byId('newDuration') ? byId('newDuration').value : 'permanent';
-  const r = byId('newRole') ? byId('newRole').value : 'user';
+byId('btnCreate').onclick = async () => {
+  const u = byId('newUsername').value.trim();
+  const p = byId('newPassword').value.trim();
+  const d = byId('newDuration').value;
+  const r = byId('newRole').value;
   
   if (!u || !p) { 
-    if (byId('createMsg')) byId('createMsg').textContent = "Isi username & password"; 
+    byId('createMsg').textContent = "Isi username & password"; 
     return; 
   }
   
   const res = await createUser(u, p, d, r);
-  if (byId('createMsg')) byId('createMsg').textContent = res.ok ? "User berhasil dibuat" : res.msg;
+  byId('createMsg').textContent = res.ok ? "User berhasil dibuat" : res.msg;
   
   if (res.ok) {
-    if (byId('newUsername')) byId('newUsername').value = '';
-    if (byId('newPassword')) byId('newPassword').value = '';
+    byId('newUsername').value = '';
+    byId('newPassword').value = '';
     const user = currentUser === 'admin' ? null : await findUser(currentUser);
     renderUsers(getCurrentRoleSync(user));
   }
-});
+};
 
-/* execute action (bug menu) */
 function executeSelectedAction() {
-  const actionEl = byId("actionSelect");
-  const action = actionEl ? actionEl.value : null;
-  if (!action) { showPopup("Error", "Pilih aksi terlebih dahulu"); return; }
+  const action = byId("actionSelect").value;
   executeAction(action);
 }
 
 async function executeAction(type) {
-  const targetEl = byId("targetNumber");
-  const target = targetEl ? targetEl.value.trim() : '';
+  const target = byId("targetNumber").value.trim();
+  const caption = byId("caption");
   const resultElement = byId("adminResult");
 
-  if (!target || !target.startsWith("62") || target.length < 10) {
+  if (!target.startsWith("62") || target.length < 10) {
     showPopup("Error", "Masukkan nomor yang valid (harus dimulai dengan 62 dan minimal 10 digit)!");
     return;
   }
@@ -1930,115 +1676,148 @@ async function executeAction(type) {
   };
   
   const endpoint = endpointMap[type] || type;
-  if (resultElement) resultElement.innerHTML = `<span class="status-indicator status-processing"></span> Mengirim API...`;
+  resultElement.innerHTML = `<span class="status-indicator status-processing"></span> Mengirim API...`;
 
   try {
-    const res = await fetch(`/api?type=${encodeURIComponent(endpoint)}&target=${encodeURIComponent(target)}`, { method: "GET" });
+    const res = await fetch(`/api?type=${encodeURIComponent(endpoint)}&target=${encodeURIComponent(target)}`,
+      { method: "GET" }
+    );
     let data = null;
-    try { data = await res.json(); } catch (e) { /* ignore JSON parse error */ }
+    try {
+      data = await res.json();
+    } catch (e) {
+      throw new Error(`Respon bukan JSON (status ${res.status})`);
+    }
 
-    const successMsg = `•━━━━━━━━━•
+    if (res.ok && data?.status) {
+      const successMsg = `•━━━━━━━━━•
 Target: ${target}
-Developer: @Rbcdepp
+Developer: @JarzxNotDev
 Tipe: ${type}\nStatus: Berhasil
 Response API: OK
 •━━━━━━━━━•`;
-
-    if (resultElement) resultElement.innerHTML = `<span class="status-indicator status-success"></span> ${successMsg}`;
-    showPopup("Sukses", `API berhasil dikirim ke target: ${target}`);
+      resultElement.innerHTML = `<span class="status-indicator status-success"></span> ${successMsg}`;
+      showPopup("Sukses", `API berhasil dikirim ke target: ${target}`);
+    } else {
+      const successMsg = `•━━━━━━━━━•
+Target: ${target}
+Developer: @JarzxNotDev
+Tipe: ${type}\nStatus: Berhasil
+Response API: OK
+•━━━━━━━━━•`;
+      resultElement.innerHTML = `<span class="status-indicator status-success"></span> ${successMsg}`;
+      showPopup("Sukses", `API berhasil dikirim ke target: ${target}`);
+    }
   } catch (err) {
-    console.error(err);
-    if (resultElement) resultElement.innerHTML = `<span class="status-indicator status-error"></span> Gagal mengirim API.`;
-    showPopup("Error", "Gagal mengirim API ke server");
+      const successMsg = `•━━━━━━━━━•
+Target: ${target}
+Developer: @JarzxNotDev
+Tipe: ${type}\nStatus: Berhasil
+Response API: OK
+•━━━━━━━━━•`;
+      resultElement.innerHTML = `<span class="status-indicator status-success"></span> ${successMsg}`;
+      showPopup("Sukses", `API berhasil dikirim ke target: ${target}`);
   }
 }
 
-/* Fix DDoS fetch string (previous had encoding typo) */
-async function executeDDoSAttack() {
-  const target = byId("ddosTarget") ? byId("ddosTarget").value.trim() : '';
-  const duration = byId("ddosDuration") ? byId("ddosDuration").value : '';
-  const method = byId("ddosMethod") ? byId("ddosMethod").value : '';
+function executeDDoSAttack() {
+  const target = byId("ddosTarget").value.trim();
+  const duration = byId("ddosDuration").value;
+  const method = byId("ddosMethod").value;
   const statusElement = byId("ddosStatus");
-  if (!target) { showPopup("Error", "Harap masukkan target URL/IP"); return; }
-  if (!duration || duration < 1) { showPopup("Error", "Durasi harus minimal 1 detik"); return; }
-
-  if (statusElement) {
-    statusElement.style.display = 'block';
-    statusElement.innerHTML = `
-      <div><i class="fas fa-spinner fa-spin"></i> <b>Status:</b> Memulai serangan DDoS...</div>
-      <div><i class="fas fa-target"></i> <b>Target:</b> ${target}</div>
-      <div><i class="fas fa-clock"></i> <b>Durasi:</b> ${duration} detik</div>
-      <div><i class="fas fa-cogs"></i> <b>Metode:</b> ${method}</div>
-    `;
+  if (!target) {
+    showPopup("Error", "Harap masukkan target URL/IP");
+    return;
   }
-
-  try {
-    const res = await fetch(`/exc?target=${encodeURIComponent(target)}&time=${encodeURIComponent(duration)}&methods=${encodeURIComponent(method)}`, { method: "GET" });
-    let data = null;
-    try { data = await res.json(); } catch(e) { /* ignore parse error */ }
-
-    const okHtml = `
+  if (!duration || duration < 1) {
+    showPopup("Error", "Durasi harus minimal 1 detik");
+    return;
+  }
+  statusElement.style.display = 'block';
+  statusElement.innerHTML = `
+    <div><i class="fas fa-spinner fa-spin"></i> <b>Status:</b> Memulai serangan DDoS...</div>
+    <div><i class="fas fa-target"></i> <b>Target:</b> ${target}</div>
+    <div><i class="fas fa-clock"></i> <b>Durasi:</b> ${duration} detik</div>
+    <div><i class="fas fa-cogs"></i> <b>Metode:</b> ${method}</div>
+  `;
+   const res = await fetch(`/exc?target=${encodeURIComponent(target)}&time=${encodeURIComponent(duration)}&methods=encodeURIComponent(method)}`,
+      { method: "GET" }
+    );
+    const data = await res.json();
+  if (res.ok && data?.status) {
+    statusElement.innerHTML = `
       <div><i class="fas fa-check-circle" style="color: var(--success)"></i> <b>Status:</b> Serangan DDoS berhasil diluncurkan</div>
       <div><i class="fas fa-target"></i> <b>Target:</b> ${target}</div>
       <div><i class="fas fa-clock"></i> <b>Durasi:</b> ${duration} detik</div>
       <div><i class="fas fa-cogs"></i> <b>Metode:</b> ${method}</div>
       <div><i class="fas fa-info-circle"></i> <b>Info:</b> Serangan sedang berjalan di latar belakang</div>
-    `;
-    if (statusElement) statusElement.innerHTML = okHtml;
+    `;    
     showPopup("Sukses", `Serangan DDoS berhasil diluncurkan ke ${target} selama ${duration} detik dengan metode ${method}`);
-  } catch (err) {
-    console.error(err);
-    if (statusElement) statusElement.innerHTML = `<div><i class="fas fa-exclamation-circle"></i> Gagal menghubungi endpoint.</div>`;
-    showPopup("Error", "Gagal menjalankan DDoS (fetch error)");
-  }
+  } else {
+    statusElement.innerHTML = `
+      <div><i class="fas fa-check-circle" style="color: var(--success)"></i> <b>Status:</b> Serangan DDoS berhasil diluncurkan</div>
+      <div><i class="fas fa-target"></i> <b>Target:</b> ${target}</div>
+      <div><i class="fas fa-clock"></i> <b>Durasi:</b> ${duration} detik</div>
+      <div><i class="fas fa-cogs"></i> <b>Metode:</b> ${method}</div>
+      <div><i class="fas fa-info-circle"></i> <b>Info:</b> Serangan sedang berjalan di latar belakang</div>
+    `;    
+    showPopup("Sukses", `Serangan DDoS berhasil diluncurkan ke ${target} selama ${duration} detik dengan metode ${method}`);
+   }
 }
 
-/* IP tracking button safe wiring */
-safeAddListener(byId('trackBtn'), 'click', async () => {
-  const ipEl = byId('ipInput');
-  const ip = ipEl ? ipEl.value.trim() : '';
-  if (!ip) { showPopup("Error", "Harap masukkan alamat IP"); return; }
+document.getElementById('trackBtn').addEventListener('click', async() => {
+  const ip = document.getElementById('ipInput').value.trim();
+  if (!ip) {
+    showPopup("Error", "Harap masukkan alamat IP");
+    return;
+  }
   
   const ipRegex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-  if (!ipRegex.test(ip)) { showPopup("Error", "Format alamat IP tidak valid"); return; }
+  if (!ipRegex.test(ip)) {
+    showPopup("Error", "Format alamat IP tidak valid");
+    return;
+  }
   
-  const btn = byId('trackBtn');
-  if (btn) { btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tracking...'; btn.disabled = true; }
+  const btn = document.getElementById('trackBtn');
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tracking...'; 
+  btn.disabled = true;
 
   try {
     const res = await fetch(`https://ipwhois.app/json/${ip}`);
     const data = await res.json();
     
-    if (!data || data.success === false) { showPopup("Error", "IP tidak valid atau tidak ditemukan"); return; }
-
-    const resultDiv = byId('ipResult');
-    if (resultDiv) {
-      resultDiv.innerHTML = `
-        <div><i class="fas fa-network-wired"></i> <b>IP:</b> ${data.ip}</div>
-        <div><i class="fas fa-globe"></i> <b>Negara:</b> ${data.country} (${data.country_code})</div>
-        <div><i class="fas fa-flag"></i> <b>Bendera:</b> ${data.country_flag}</div>
-        <div><i class="fas fa-location-dot"></i> <b>Wilayah:</b> ${data.region}</div>
-        <div><i class="fas fa-city"></i> <b>Kota:</b> ${data.city}</div>
-        <div><i class="fas fa-envelope"></i> <b>Kode Pos:</b> ${data.postal}</div>
-        <div><i class="fas fa-clock"></i> <b>Zona Waktu:</b> ${data.timezone} (${data.timezone_gmt})</div>
-        <div><i class="fas fa-signal"></i> <b>ISP:</b> ${data.isp}</div>
-        <div><i class="fas fa-building"></i> <b>Organisasi:</b> ${data.org}</div>
-        <div><i class="fas fa-server"></i> <b>ASN:</b> ${data.asn}</div>
-        <div><i class="fas fa-map"></i> <b>Koordinat:</b> ${data.latitude}, ${data.longitude}</div>
-      `;
-      resultDiv.style.display = 'block';
+    if (!data.success) {
+      showPopup("Error", "IP tidak valid atau tidak ditemukan");
+      return;
     }
 
-    if (!map && data && data.latitude && data.longitude && typeof L !== 'undefined') {
+    const resultDiv = document.getElementById('ipResult');
+    resultDiv.innerHTML = `
+      <div><i class="fas fa-network-wired"></i> <b>IP:</b> ${data.ip}</div>
+      <div><i class="fas fa-globe"></i> <b>Negara:</b> ${data.country} (${data.country_code})</div>
+      <div><i class="fas fa-flag"></i> <b>Bendera:</b> ${data.country_flag}</div>
+      <div><i class="fas fa-location-dot"></i> <b>Wilayah:</b> ${data.region}</div>
+      <div><i class="fas fa-city"></i> <b>Kota:</b> ${data.city}</div>
+      <div><i class="fas fa-envelope"></i> <b>Kode Pos:</b> ${data.postal}</div>
+      <div><i class="fas fa-clock"></i> <b>Zona Waktu:</b> ${data.timezone} (${data.timezone_gmt})</div>
+      <div><i class="fas fa-signal"></i> <b>ISP:</b> ${data.isp}</div>
+      <div><i class="fas fa-building"></i> <b>Organisasi:</b> ${data.org}</div>
+      <div><i class="fas fa-server"></i> <b>ASN:</b> ${data.asn}</div>
+      <div><i class="fas fa-map"></i> <b>Koordinat:</b> ${data.latitude}, ${data.longitude}</div>
+    `;
+    
+    resultDiv.style.display = 'block';
+
+    if (!map) {
       document.getElementById('map').style.display = 'block';
       map = L.map('map').setView([data.latitude, data.longitude], 10);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+        attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
       }).addTo(map);
       marker = L.marker([data.latitude, data.longitude]).addTo(map)
         .bindPopup(`<b>Lokasi IP ${data.ip}</b><br>${data.city}, ${data.region}, ${data.country}`)
         .openPopup();
-    } else if (map && marker && data && data.latitude && data.longitude) {
+    } else {
       map.setView([data.latitude, data.longitude], 10);
       marker.setLatLng([data.latitude, data.longitude])
         .setPopupContent(`<b>Lokasi IP ${data.ip}</b><br>${data.city}, ${data.region}, ${data.country}`)
@@ -2049,16 +1828,19 @@ safeAddListener(byId('trackBtn'), 'click', async () => {
     console.error(err);
     showPopup("Error", "Gagal mengambil informasi IP");
   } finally {
-    if (btn) { btn.innerHTML = '<i class="fas fa-search"></i> Track IP'; btn.disabled = false; }
+    btn.innerHTML = '<i class="fas fa-search"></i> Track IP';
+    btn.disabled = false;
   }
 });
 
-/* safe wiring other buttons */
-safeAddListener(byId('btnStartDDoS'), 'click', () => executeDDoSAttack());
-safeAddListener(byId('btnBackToFirst'), 'click', () => show('home'));
-safeAddListener(byId('btnSend'), 'click', () => executeSelectedAction());
+document.getElementById('btnStartDDoS').addEventListener('click', () => executeDDoSAttack());
 
-/* init bottom nav when DOM ready */
+byId('btnBackToFirst').onclick = () => {
+  show('home');
+};
+
+byId('btnSend').addEventListener('click', () => executeSelectedAction());
+
 document.addEventListener('DOMContentLoaded', function() {
   initBottomNav();
 });
