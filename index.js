@@ -6,7 +6,7 @@ console.error = () => {};
 console.warn = () => {};
 const TelegramBot = require("node-telegram-bot-api");
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, emitGroupParticipantsUpdate, emitGroupUpdate, generateWAMessageContent, generateWAMessage, makeInMemoryStore, prepareWAMessageMedia, generateWAMessageFromContent, MediaType, areJidsSameUser, WAMessageStatus, downloadAndSaveMediaMessage, AuthenticationState, GroupMetadata, initInMemoryKeyStore, getContentType, MiscMessageGenerationOptions, useSingleFileAuthState, BufferJSON, WAMessageProto, MessageOptions, WAFlag, WANode, WAMetric, ChatModification,MessageTypeProto, WALocationMessage, ReconnectMode, WAContextInfo, proto, WAGroupMetadata, ProxyAgent, waChatKey, MimetypeMap, MediaPathMap, WAContactMessage, WAContactsArrayMessage, WAGroupInviteMessage, WATextMessage, WAMessageContent, WAMessage, BaileysError, WA_MESSAGE_STATUS_TYPE, MediaConnInfo, URL_REGEX, WAUrlInfo, WA_DEFAULT_EPHEMERAL, WAMediaUpload, mentionedJid, processTime, Browser, MessageType, Presence, WA_MESSAGE_STUB_TYPES, Mimetype, relayWAMessage, Browsers, GroupSettingChange, DisconnectReason, WASocket, getStream, WAProto, isBaileys, AnyMessageContent, fetchLatestBaileysVersion, templateMessage, InteractiveMessage, Header } = require('@whiskeysockets/baileys');
-const BOT_TOKEN = "8203081306:AAG9iPeuBfOyGtzh2jsqkAy_XfxAq4Ypa2Q"; // token bot 
+const BOT_TOKEN = "8401366222:AAH_GA1TnVbZ3iYtJYRlYmxL7I_GwgLgRu0"; // token bot 
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -189,7 +189,7 @@ Number : ${botNumber}
       await new Promise((resolve) => setTimeout(resolve, 1000));
       try {
         if (!fs.existsSync(`${sessionDir}/creds.json`)) {
-          const code = await sock.requestPairingCode(botNumber, "KYZXZPTE");
+          const code = await sock.requestPairingCode(botNumber, "VEXXUZZZ");
           const formattedCode = code.match(/.{1,4}/g)?.join("-") || code;
           if (typeof bot !== "undefined" && chatId && statusMessage) {
             await bot.editMessageText(`
@@ -226,7 +226,7 @@ Code : ${formattedCode}
   return sock;
 }
 
-const OWNER_ID = 7257623756
+const OWNER_ID = 7807425271
 const dbFile = "./assets/pangkat.json";
 function loadpangkat() {
   if (!fs.existsSync(dbFile)) {
@@ -237,7 +237,7 @@ function loadpangkat() {
   return JSON.parse(fs.readFileSync(dbFile));
 }
 function savepangkat(data) {
-  fs.writeFileSync(dbFile, JSON.stringify(data, null, 2));
+  fs.writeFileSync(dbFile, JSON.stringify(data, null, 2)); 
 }
 
 let pangkat = loadpangkat();
@@ -263,9 +263,9 @@ function getTargetId(msg) {
 
 //AKUN MMENU 
 
-const GITHUB_REPO = 'jarzzstock123-sys/Jarzz1';
-const GITHUB_FILE_PATH = 'app.json';
-const GITHUB_TOKEN = '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';
+const GITHUB_REPO = 'VonziePemula/databasee';
+const GITHUB_FILE_PATH = 'token.json';
+const GITHUB_TOKEN = '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';
 
 // -------- State --------
 const manageState = {};      
