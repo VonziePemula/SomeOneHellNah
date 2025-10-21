@@ -8,10 +8,16 @@ const TelegramBot = require("node-telegram-bot-api");
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, emitGroupParticipantsUpdate, emitGroupUpdate, generateWAMessageContent, generateWAMessage, makeInMemoryStore, prepareWAMessageMedia, generateWAMessageFromContent, MediaType, areJidsSameUser, WAMessageStatus, downloadAndSaveMediaMessage, AuthenticationState, GroupMetadata, initInMemoryKeyStore, getContentType, MiscMessageGenerationOptions, useSingleFileAuthState, BufferJSON, WAMessageProto, MessageOptions, WAFlag, WANode, WAMetric, ChatModification,MessageTypeProto, WALocationMessage, ReconnectMode, WAContextInfo, proto, WAGroupMetadata, ProxyAgent, waChatKey, MimetypeMap, MediaPathMap, WAContactMessage, WAContactsArrayMessage, WAGroupInviteMessage, WATextMessage, WAMessageContent, WAMessage, BaileysError, WA_MESSAGE_STATUS_TYPE, MediaConnInfo, URL_REGEX, WAUrlInfo, WA_DEFAULT_EPHEMERAL, WAMediaUpload, mentionedJid, processTime, Browser, MessageType, Presence, WA_MESSAGE_STUB_TYPES, Mimetype, relayWAMessage, Browsers, GroupSettingChange, DisconnectReason, WASocket, getStream, WAProto, isBaileys, AnyMessageContent, fetchLatestBaileysVersion, templateMessage, InteractiveMessage, Header } = require('@whiskeysockets/baileys');
 const BOT_TOKEN = "8401366222:AAH_GA1TnVbZ3iYtJYRlYmxL7I_GwgLgRu0"; // token bot 
 const express = require('express');
+https://207.46.224.80:5032
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 const cookieParser = require('cookie-parser');
+app.use(express.json());
+app.use(express.static('./assets/index.html'));
+app.use(cookieParser());
+app.use(cors());
+app.use(express.static(path.join(__dirname, "assets", 'index.html')));
 const fs = require("fs-extra");
 const P = require("pino");
 const fetch = require("node-fetch");
@@ -258,9 +264,9 @@ function getTargetId(msg) {
 
 //AKUN MMENU 
 
-const GITHUB_REPO = 'VonziePemula/AllUserWeb';
+const GITHUB_REPO = 'jarzzstock123-sys/Jarzz1';
 const GITHUB_FILE_PATH = 'app.json';
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = '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';
 
 // -------- State --------
 const manageState = {};      
@@ -344,8 +350,8 @@ function createUserButtons(users, page = 0, perPage = 4) {
   return buttons;
 }
 
-if (typeof okBox === 'undefined') global.okBox = a=>"```"+"⸙ SomeOne — Ok\n"+a.join("\n")+"```"
-if (typeof errBox === 'undefined') global.errBox = a=>"```"+"⸙ SomeOne — Eror\n"+a.join("\n")+"```"
+if (typeof okBox === 'undefined') global.okBox = a=>"```"+"⸙ Jarzx — Ok\n"+a.join("\n")+"```"
+if (typeof errBox === 'undefined') global.errBox = a=>"```"+"⸙ Jarzx — Eror\n"+a.join("\n")+"```"
 
 const AX = axios.create({
   timeout: 20000,
@@ -562,14 +568,14 @@ bot.onText(/^\/adp\s+(\S+)$/i, async (msg, m) => {
   const perServerErrors = []
   const limit = pLimit(6)
 
-  const statusMsg = await bot.sendMessage(chatId, `⸙ SomeOne — Proses\n0/${total} • ✔0 ✖0`, { parse_mode: "Markdown" })
+  const statusMsg = await bot.sendMessage(chatId, `⸙ Jarzx — Proses\n0/${total} • ✔0 ✖0`, { parse_mode: "Markdown" })
 
   const updateProgress = async () => {
     const barLen = 20
     const filled = Math.round((done / total) * barLen)
     const bar = "█".repeat(filled) + "░".repeat(barLen - filled)
     const lines = [
-      `⸙ SomeOne — Proses`,
+      `⸙ Jarzx — Proses`,
       `${done}/${total} • ✔${ok} ✖${fail}`,
       `[${bar}]`
     ]
@@ -596,7 +602,7 @@ bot.onText(/^\/adp\s+(\S+)$/i, async (msg, m) => {
     }
   })))
 
-  const lines = [`⸙ SomeOne — Selesai\n✔ ${ok} • ✖ ${fail}`]
+  const lines = [`⸙ Jarzx — Selesai\n✔ ${ok} • ✖ ${fail}`]
   if (perServerErrors.length) lines.push(...perServerErrors)
   await bot.sendMessage(chatId, okBox(lines), { parse_mode: "Markdown" })
 })
@@ -640,8 +646,8 @@ bot.on('callback_query', async (query) => {
       if (data === 'owner_menu') {
         caption = escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
  
 ꕥ C O M M A N D ꕥ
@@ -656,8 +662,8 @@ bot.on('callback_query', async (query) => {
       if (data === 'api_menu') {
         caption = escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
  
 ꕥ C O M M A N D ꕥ
@@ -670,8 +676,8 @@ bot.on('callback_query', async (query) => {
         // account menu: tombol Create / Manage / Delete
         caption = escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
  
 ꕥ C O M M A N D ꕥ
@@ -687,8 +693,8 @@ bot.on('callback_query', async (query) => {
       if (data === 'akses_menu') {
         caption = escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
  
 ꕥ C O M M A N D ꕥ
@@ -703,8 +709,8 @@ bot.on('callback_query', async (query) => {
       if (data === 'back_to_main') {
         caption = escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
         `);
         replyMarkup.inline_keyboard = [
@@ -920,8 +926,8 @@ bot.onText(/\/start/, (msg) => {
   bot.sendPhoto(chatId, 'https://files.catbox.moe/u235f5.jpg', {
     caption: escapeMd(`
 ꕥ D A T A  B O T ꕥ
-ꕤ Developer : @SomeOneNotDev
-ꕤ Name bot : Api New SomeOne
+ꕤ Developer : @JarzxNotDev
+ꕤ Name bot : Api New Jarzx
 ꕤ Version : 1.0
     `),
     parse_mode: 'MarkdownV2',
@@ -949,19 +955,6 @@ if (!isOwnerMain(msg.from.id)) {
         parse_mode: "HTML",
         });
     });
-    
-bot.onText(/\/Xget/, async (msg) => {
-if (!isOwnerMain(msg.from.id)) {
-    return bot.sendMessage(msg.chat.id, "Hanya Owner yang bisa tambah Reseller!");
-  }
-    const response = await fetch('https://httpbin.org/get');
-    const data = await response.json();
-    const ip = data.origin;
-   await bot.sendMessage(msg.chat.id, `http://${ip}:${PORT}/web`, {
-        reply_to_message_id: msg.message_id,
-        parse_mode: "HTML",
-        });
-    });    
     
 bot.onText(/\/Xsender/, async (msg) => {
 if (!isOwnerMain(msg.from.id)) {
@@ -1299,17 +1292,12 @@ bot.onText(/^\/TestFunc\s+(\d+)\s+([\s\S]+)/i, async (msg, match) => {
     }
   }
 });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, "assets", "index.html"));
+});
 
-// ==================== WEB SERVER ==================== //
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-app.get("/", (req, res) => {
-  const filePath = path.join(__dirname, "assets", "index.html");
-  fs.readFile(filePath, "utf8", (err, html) => {
-    if (err) return res.status(500).send("❌ Gagal baca index.html");
-    res.send(html);
-  });
+app.get('/web', (req, res) => {
+  res.sendFile(path.join(__dirname, "assets", "index.html"));
 });
 
 app.get('/api', async (req, res) => {
